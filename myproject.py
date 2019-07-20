@@ -53,6 +53,19 @@ def Delete(id):
     mydb.session.commit()
     return redirect(url_for('display'))
 
+@app.route('/myportal/update/<int:id>',methods=['GET','POST'])
+def Update(id):
+    data=mydb.session.query(Signup).filter(Signup.id==id).one()
+    if request.method=='POST':
+        data.s_name=request.form['name']
+        data.s_rollno=request.form['rollno']
+        data.s_mailid=request.form['emailid']
+        data.s_phno=request.form['phno']
+        data.s_branch=request.form['branch']
+
+        mydb.session.commit()
+        return redirect(url_for('display'))
+    return render_template('update.html',data=data)
 if __name__=='__main__':
     mydb.create_all()
     app.run(debug=True)

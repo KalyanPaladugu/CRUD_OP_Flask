@@ -26,6 +26,7 @@
         <th>Phone number</th>
         <th>Branch</th>
         <th>Delete</th>
+        <th>Update</th>
     </tr>
     {% for record in data %}
       <tr>
@@ -36,6 +37,7 @@
         <td>{{record.s_phno}}</td>
         <td>{{record.s_branch}}</td>
         <td><a href="{{url_for('Delete',id=record.id)}}">Delete</a></td>
+          <td><a href="{{url_for('Update',id=record.id)}}">Update</a></td>
 
 
       </tr>
