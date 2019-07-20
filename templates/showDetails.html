@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+    <div class="col-md-8 offset-2">
+<table class="table table-bordered ">
+      <tr class="bg-info">
+        <th>Id</th>
+        <th>Name</th>
+        <th>Roll Number</th>
+        <th>Email Id</th>
+        <th>Phone number</th>
+        <th>Branch</th>
+        <th>Delete</th>
+    </tr>
+    {% for record in data %}
+      <tr>
+          <td>{{ loop.index }}</td>
+        <td>{{record.s_name}}</td>
+        <td>{{record.s_rollno}}</td>
+        <td>{{record.s_mailid}}</td>
+        <td>{{record.s_phno}}</td>
+        <td>{{record.s_branch}}</td>
+        <td><a href="{{url_for('Delete',id=record.id)}}">Delete</a></td>
+
+
+      </tr>
+    {% endfor %}
+    </table>
+</div>
+  </body>
+</html>
